@@ -1,0 +1,5 @@
+names:
+- person
+nc: 1
+train: C:/Users/User/Desktop/yolov5_onlyPerson/person/images/train/
+val: C:/Users/User/Desktop/yolov5_onlyPerson/person/images/val/
