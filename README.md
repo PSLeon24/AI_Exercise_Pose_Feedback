@@ -5,6 +5,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 ### development environment
 - OS: MAC m1 & Windows 11<br>
 - Frameworks & Libraries: YOLOv5, MediaPipe, OpenCV, Streamlit
+- Device: iPhone 12 Pro(WebCam using iVCam)
 
 ## Data
 - YOLOv5: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/yolov5_onlyPerson">Detect only one Person</a>
