@@ -107,7 +107,7 @@ while True:
                 now = datetime.datetime.now()
                 st.write(f"자세가 무너졌습니다! - {now.hour}시 {now.minute}분 {now.second}초")
                 pygame.mixer.init()
-                pygame.mixer.music.load("broken_posture.mp3")
+                pygame.mixer.music.load("./resources/sounds/broken_posture.mp3")
                 pygame.mixer.music.play()
                 # 'broken_posture.mp3' 오디오 파일을 HTML <audio> 요소로 표시
                 # audio_file = "broken_posture.mp3"
