@@ -20,7 +20,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
       - <a href="https://universe.roboflow.com/isbg/sdt/dataset/5">SDT Image Dataset</a>
     - More(bending, lying, sitting, standing)
       - <a href="https://www.kaggle.com/datasets/deepshah16/silhouettes-of-human-posture">Silhouettes of human posture</a>
-  - 
+  - Inference
     |test1|test2|
     |---|---|
     |![스크린샷 2023-09-17 154841](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/87a0b701-2df5-400b-9001-d4f526bf8211)|![스크린샷 2023-09-17 154818](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/750a4a99-cfd6-44cc-ae95-a4db42e7b67a)|
