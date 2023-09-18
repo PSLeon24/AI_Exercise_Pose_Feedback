@@ -58,9 +58,11 @@ menu_selection = st.selectbox("운동 선택", ("벤치프레스", "스쿼트", 
 FRAME_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
 
-# Mediapipe Pose 모델 초기화
+# Mediapipe Pose 모델 초기화: 최소 감지 신뢰도=0.5, 최소 추적 신뢰도=0.7, 모델 복잡도=2를 준다.
 mp_pose = mp.solutions.pose
-pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+pose = mp_pose.Pose(
+    min_detection_confidence=0.5, min_tracking_confidence=0.7, model_complexity=2
+)
 
 # 신뢰도 임계값 조정을 위한 슬라이더 추가
 confidence_threshold = st.slider("신뢰도 임계값", 0.0, 1.0, 0.7)
@@ -72,7 +74,7 @@ right_angle_display = st.empty()
 while True:
     _, frame = camera.read()
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    frame = cv2.flip(frame, 1)
+    frame = cv2.flip(frame, 1)  # 프레임 좌우반전
 
     # YOLOv5를 사용하여 사물 검출
     results_yolo = detect_objects(frame)
