@@ -46,4 +46,5 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 - Week2: Prototype Development & Mini Test
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_2.pptx">Read More</a>
 - Week3: Retrain the model detecting only person and Estimate holistic pose after detecting only person closest to the camera using yolov5
-  - to be added.
+  - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_3.pdf">Read More</a>
+- Week4: Write the paper
