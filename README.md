@@ -2,7 +2,7 @@
 ### Description
 A Study on the big three exercises AI posture correction service Using YOLOv5 and MediaPipe<br>
 <b>Yeong-Min Ko</b>
-### development environment
+### Development Environment
 - OS: MAC m1 & Windows 11(NVIDIA GeForce RTX 4080 Ti)<br>
 - Frameworks & Libraries: YOLOv5, MediaPipe, OpenCV, Streamlit
 - Device: iPhone 12 Pro(WebCam using iVCam)
