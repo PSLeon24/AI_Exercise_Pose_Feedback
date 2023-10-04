@@ -49,6 +49,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 - 2023/09/10: The project detecting only one person using yolov5 was completed.
 - 2023/09/11: As a result of using it in combination with mediapipe, the accuracy was lower than expected. Therefore, we plan to do labeling by adding extra space around people.
 - 2023/09/16: The bounding box to train the model was significantly relabeled, and as a result, pose estimation was finally successful with high accuracy when using yolov5 and mediapipe together. And <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/Streamlit.py">the streamlit file</a> was impleted to estimate holistic pose after detecting only person closest to the camera using yolov5.
+- 2023/09/30 ~ 2023/10/02: I have collected dataset to train exercise posture classification model.
 
 ## Project Progress
 - Week1: Requirement Analysis
