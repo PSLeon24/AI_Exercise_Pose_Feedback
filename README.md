@@ -25,12 +25,12 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
     |---|---|
     |![스크린샷 2023-09-17 154841](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/87a0b701-2df5-400b-9001-d4f526bf8211)|![스크린샷 2023-09-17 154818](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/750a4a99-cfd6-44cc-ae95-a4db42e7b67a)|
 - Exercise Posture Correction
-  - Shooting Position
+  - Shooting Stand Position
     |Bench Press|Squat and Deadlift|
     |:--:|:--:|
     |![KakaoTalk_Photo_2023-10-04-13-37-53 001](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/59701404-4648-497d-9893-7e617e1dd928)|![KakaoTalk_Photo_2023-10-04-13-37-54 003](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/fc403019-f221-4113-a1cf-44a5de9a042f)|
-  - Example
-    |Picture|
+  - Example of Shooting stand position for Bench Press
+    |Picture(Left, Center, Right)|
     |:--:|
     |![KakaoTalk_20231004_132437850](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d2aec3e9-59ed-4eba-b4e5-8649cbe18260)|
   - Bench Press
