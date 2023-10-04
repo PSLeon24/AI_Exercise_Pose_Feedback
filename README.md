@@ -22,7 +22,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
       - <a href="https://www.kaggle.com/datasets/deepshah16/silhouettes-of-human-posture">Silhouettes of human posture</a>
   - Inference
     |test1|test2|
-    |---|---|
+    |:---:|:---:|
     |![스크린샷 2023-09-17 154841](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/87a0b701-2df5-400b-9001-d4f526bf8211)|![스크린샷 2023-09-17 154818](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/750a4a99-cfd6-44cc-ae95-a4db42e7b67a)|
 - Exercise Posture Correction
   - Shooting Stand Position
@@ -43,7 +43,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 - Open your terminal in mac, linux or your command prompt in Windows. Then, type "Streamlit run Streamlit.py".
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
   |picture1|picture2|
-    |---|---|
+    |:---:|:---:|
     |![스크린샷 2023-09-16 222045](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d4c754b3-9569-4969-82cb-18bebbc6f9dd)|![스크린샷 2023-09-16 224645](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/95129ae5-9cf3-41a3-90a4-017150efeb1c)|
 ## Major project records
 - 2023/09/10: The project detecting only one person using yolov5 was completed.
