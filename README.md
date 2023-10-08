@@ -39,13 +39,32 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
     - ![스크린샷 2023-10-08 192058](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/c945e0e2-4047-46ea-a76a-c7572fe32486)
   - Dead Lift
     - ![스크린샷 2023-10-08 192057](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/3603ad3f-f177-47dc-ac57-31b43c8646bf)
-   
+
+## Evaluate
+### YOLOv5
+  - Detect only a Person exercising something
+    
+### Exercise Classfication
+  - Bench Press (Algorithm: Random Forest)
+    |Accuracy|Precision|Recall|F1-Score|
+    |:--:|:--:|:--:|:--:|
+    |0.961|0.963|0.961|0.961|
+  - Squat (Algorithm: Random Forest)
+    |Accuracy|Precision|Recall|F1-Score|
+    |:--:|:--:|:--:|:--:|
+    |0.989|0.989|0.989|0.989|
+  - Deadlift (Algorithm: Gradient Boosting)
+    |Accuracy|Precision|Recall|F1-Score|
+    |:--:|:--:|:--:|:--:|
+    |0.947|0.949|0.947|0.948|
+
 ## How to Use
 - Open your terminal in mac, linux or your command prompt in Windows. Then, type "Streamlit run Streamlit.py".
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
   |picture1|picture2|
     |:---:|:---:|
     |![스크린샷 2023-09-16 222045](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d4c754b3-9569-4969-82cb-18bebbc6f9dd)|![스크린샷 2023-09-16 224645](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/95129ae5-9cf3-41a3-90a4-017150efeb1c)|
+  
 ## Major project records
 - 2023/09/10: The project detecting only one person using yolov5 was completed.
 - 2023/09/11: As a result of using it in combination with mediapipe, the accuracy was lower than expected. Therefore, we plan to do labeling by adding extra space around people.
