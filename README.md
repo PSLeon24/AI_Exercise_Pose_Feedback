@@ -34,11 +34,12 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
     |:--:|
     |![KakaoTalk_20231004_132437850](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d2aec3e9-59ed-4eba-b4e5-8649cbe18260)|
   - Bench Press
-    
+    - ![스크린샷 2023-10-08 192017](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/319898a4-56ba-4c6c-9b89-63b4cf885148)
   - Squat
-    
+    - ![스크린샷 2023-10-08 192058](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/c945e0e2-4047-46ea-a76a-c7572fe32486)
   - Dead Lift
-
+    - ![스크린샷 2023-10-08 192057](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/3603ad3f-f177-47dc-ac57-31b43c8646bf)
+   
 ## How to Use
 - Open your terminal in mac, linux or your command prompt in Windows. Then, type "Streamlit run Streamlit.py".
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
@@ -50,14 +51,16 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 - 2023/09/11: As a result of using it in combination with mediapipe, the accuracy was lower than expected. Therefore, we plan to do labeling by adding extra space around people.
 - 2023/09/16: The bounding box to train the model was significantly relabeled, and as a result, pose estimation was finally successful with high accuracy when using yolov5 and mediapipe together. And <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/Streamlit.py">the streamlit file</a> was impleted to estimate holistic pose after detecting only person closest to the camera using yolov5.
 - 2023/09/30 ~ 2023/10/02: I have collected dataset to train exercise posture classification model.
+- 2023/10/03 ~ 2023/10/08: First, I have labeled the dataset's class. And then I have trained models. Finally, I have evaluated the models.
 
 ## Project Progress
-- Week1: Requirement Analysis
+- Week 1: Requirement Analysis
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_1.pdf">Read More</a>
-- Week2: Prototype Development & Mini Test
+- Week 2: Prototype Development & Mini Test
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_2.pptx">Read More</a>
-- Week3: Retrain the model detecting only person and Estimate holistic pose after detecting only person closest to the camera using yolov5
+- Week 3: Retrain the model detecting only person and Estimate holistic pose after detecting only person closest to the camera using yolov5
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_3.pdf">Read More</a>
-- Week4: Write the paper
-- Week5: Write the paper and Develop machine learning pipelines
+- Week 4: Write the paper
+- Week 5: Write the paper and Develop machine learning pipelines
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_5.pdf">Read More</a>
+- Week 6: Presentation of project mid-progress
