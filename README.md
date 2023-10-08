@@ -38,7 +38,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
   - Squat: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/labeling/squat">read more</a>
     - ![스크린샷 2023-10-08 203046](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/15e25bf1-5a02-4b62-ba07-65f7a1ac8bfe)
   - Deadlift: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/labeling/deadlift">read more</a>
-    - ![스크린샷 2023-10-08 192057](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/3603ad3f-f177-47dc-ac57-31b43c8646bf)
+    - ![스크린샷 2023-10-08 203430](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/ef3795db-e999-477c-824b-58ab4845ab55)
 
 ## Train & Evaluate
 ### YOLOv5
