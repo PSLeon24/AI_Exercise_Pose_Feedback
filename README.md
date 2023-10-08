@@ -16,7 +16,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
     - Squat
       - <a href="https://universe.roboflow.com/nejc-graj-1na9e/squat-depth/dataset/14/download">Squat-Depth Image Dataset</a>
       - <a href="https://universe.roboflow.com/models/object-detection">HumonBody1 Computer Vision Project</a> with Standing
-    - Dead Lift
+    - Deadlift
       - <a href="https://universe.roboflow.com/isbg/sdt/dataset/5">SDT Image Dataset</a>
     - More(bending, lying, sitting, standing)
       - <a href="https://www.kaggle.com/datasets/deepshah16/silhouettes-of-human-posture">Silhouettes of human posture</a>
@@ -33,16 +33,25 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
     |Picture(Left, Center, Right)|
     |:--:|
     |![KakaoTalk_20231004_132437850](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d2aec3e9-59ed-4eba-b4e5-8649cbe18260)|
-  - Bench Press
+  - Bench Press: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/labeling/benchpress">read more</a>
     - ![스크린샷 2023-10-08 192017](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/319898a4-56ba-4c6c-9b89-63b4cf885148)
-  - Squat
+  - Squat: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/labeling/squat">read more</a>
     - ![스크린샷 2023-10-08 192058](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/c945e0e2-4047-46ea-a76a-c7572fe32486)
-  - Dead Lift
+  - Deadlift: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/tree/main/labeling/deadlift">read more</a>
     - ![스크린샷 2023-10-08 192057](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/3603ad3f-f177-47dc-ac57-31b43c8646bf)
 
-## Evaluate
+## Train & Evaluate
 ### YOLOv5
   - Detect only a Person exercising something
+    - Hyperparameters to train
+      - epochs 200(but early stopping: 167)
+      - batch 16
+      - weights yolov5s.pt
+      - etc are set by 'default'
+  - Performance Evaluation
+    |Precision|Recall|mAP_0.5|mAP_0.5:0.95|
+    |:--:|:--:|:--:|:--:|
+    |0.987|0.990|0.99|0.686|
     
 ### Exercise Classfication
   - Bench Press (Algorithm: Random Forest)
