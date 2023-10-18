@@ -1,11 +1,13 @@
 import cv2
 import streamlit as st
 import numpy as np
+import pandas as pd
 import mediapipe as mp
 import datetime
 import time
 import pygame
 import torch
+import pickle
 
 # YOLOv5 모델 불러오기
 model_weights_path = "./models/best_big_bounding.pt"
@@ -48,12 +50,34 @@ st.title("실시간 3대 운동 AI 자세 교정 서비스")
 menu_selection = st.selectbox("운동 선택", ("벤치프레스", "스쿼트", "데드리프트"))
 
 # Load different models based on the selected exercise
-# if menu_selection == "벤치프레스":
-#     model_weights_path = './models/benchpress/benchpress.pkl'
-# elif menu_selection == "스쿼트":
-#     model_weights_path = './models/squat/squat.pkl'
-# elif menu_selection == "데드리프트":
-#     model_weights_path = './models/deadlift/deadlift.pkl'
+bench_counter = 0
+squat_counter = 0
+deadlift_counter = 0
+current_stage = ""
+
+model_weights_path = "./models/benchpress/benchpress.pkl"
+with open(model_weights_path, "rb") as f:
+    model_b = pickle.load(f)
+
+if menu_selection == "벤치프레스":
+    model_weights_path = "./models/benchpress/benchpress.pkl"
+    with open(model_weights_path, "rb") as f:
+        model_b = pickle.load(f)
+elif menu_selection == "스쿼트":
+    model_weights_path = "./models/squat/squat.pkl"
+    with open(model_weights_path, "rb") as f:
+        model_s = pickle.load(f)
+elif menu_selection == "데드리프트":
+    model_weights_path = "./models/deadlift/deadlift.pkl"
+    with open(model_weights_path, "rb") as f:
+        model_d = pickle.load(f)
+
+# def count_bench():
+
+# def count_squat():
+
+# def count_deadlift():
+
 
 FRAME_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
@@ -68,6 +92,8 @@ pose = mp_pose.Pose(
 confidence_threshold = st.slider("신뢰도 임계값", 0.0, 1.0, 0.7)
 
 # 각도 표시를 위한 빈 영역 초기화
+bench_counter_display = st.empty()
+bench_counter_display.text(f"현재 카운터: {bench_counter}회")
 left_angle_display = st.empty()
 right_angle_display = st.empty()
 
@@ -170,6 +196,36 @@ while True:
                             pygame.mixer.music.play()
                             # 이전 알림 시간 갱신
                             previous_alert_time = current_time
+
+                    # 벤치프레스 업 다운
+                    try:
+                        row = [
+                            coord
+                            for res in results_pose.pose_landmarks.landmark
+                            for coord in [res.x, res.y, res.z, res.visibility]
+                        ]
+                        X = pd.DataFrame([row])
+                        exercise_class = model_b.predict(X)[0]
+                        exercise_class_prob = model_b.predict_proba(X)[0]
+                        print(exercise_class, exercise_class_prob)
+                        if (
+                            "down" in exercise_class
+                            and exercise_class_prob[exercise_class_prob.argmax()] >= 0.3
+                        ):
+                            current_stage = "down"
+                            st.write("down")
+                        elif (
+                            current_stage == "down"
+                            and "up" in exercise_class
+                            and exercise_class_prob[exercise_class_prob.argmax()] >= 0.3
+                        ):
+                            current_stage = "up"
+                            st.write("up")
+                            bench_counter += 1
+                            bench_counter_display.text(f"현재 카운터: {bench_counter}회")
+                            print(bench_counter)
+                    except Exception as e:
+                        pass
 
                     # 랜드마크 그리기
                     for landmark in mp_pose.PoseLandmark:
