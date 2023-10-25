@@ -1,8 +1,8 @@
 from gtts import gTTS
 
-text = "자세가 무너졌습니다"
+text = "down"
 lang = "ko"
 
 tts = gTTS(text=text, lang=lang)
 
-tts.save("../resources/sounds/broken_posture.mp3")
+tts.save("/Users/min_leon/Desktop/졸작준비/resources/sounds/down.mp3")
