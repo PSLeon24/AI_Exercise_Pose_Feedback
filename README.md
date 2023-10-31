@@ -81,6 +81,7 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
 - 2023/09/30 ~ 2023/10/02: I have collected dataset to train exercise posture classification model.
 - 2023/10/03 ~ 2023/10/08: First, I have labeled the dataset's class. And then I have trained models. Finally, I have evaluated the models.
 - 2023/10/18: I linked the bench press model and the server and implemented an algorithm to count the number of doing bench presses. Additionally, I will be linking two models: deadlift and squat.
+- 2023/10/24: I linked all models and the server. I have finished writing the paper.
 
 ## Project Progress
 - Week 1: Requirement Analysis
@@ -96,3 +97,4 @@ A Study on the big three exercises AI posture correction service Using YOLOv5 an
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/mid-term%20presentation.pdf">Read More</a>
 - Week 7: Link the bench press model and the streamlit server / Implement an algorithm to count the number of bench press
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_7.pdf">Read More</a>
+- Week 8: Write the paper and Link all models(bench press, squat, deadlift) and the streamlit server
