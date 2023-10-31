@@ -72,7 +72,7 @@ study duration: 2023.09.01 ~ ing <br>
     |0.947|0.949|0.947|0.948|
 
 ## How to Use
-- Open your terminal in mac, linux or your command prompt in Windows. Then, type "Streamlit run Streamlit.py".
+- Open your terminal in mac, linux or your command prompt in Windows. Then, type "<b>Streamlit run Streamlit.py</b>".<br>
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
   |picture1|picture2|
     |:---:|:---:|
