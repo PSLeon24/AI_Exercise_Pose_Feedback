@@ -1,6 +1,7 @@
 # AI_Exercise_Pose_Feedback
 ### Description
-A Study on the big three exercises AI posture correction service Using YOLOv5 and MediaPipe (study duration: 2023.09.01 ~ ing)<br>
+A Study on the big three exercises AI posture correction service Using YOLOv5 and MediaPipe<br>
+study duration: 2023.09.01 ~ ing <br>
 |<b>Yeong-Min Ko</b>|
 |:--:|
 |<img height="180" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/6b04d3f5-e87a-4a2b-a2a9-e406e575b6fd">|
