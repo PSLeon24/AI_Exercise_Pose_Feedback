@@ -51,8 +51,12 @@ def detect_objects(frame):
 # Streamlit 앱 초기화
 st.title("실시간 3대 운동 AI 자세 교정 서비스")
 
+pygame.mixer.init()
+
 # Sidebar에 메뉴 추가
 menu_selection = st.selectbox("운동 선택", ("벤치프레스", "스쿼트", "데드리프트"))
+counter_display = st.sidebar.empty()
+counter_display.text(f"현재 카운터: {counter}회")
 
 # Load different models based on the selected exercise
 counter = 0
@@ -89,10 +93,17 @@ pose = mp_pose.Pose(
 confidence_threshold = st.slider("신뢰도 임계값", 0.0, 1.0, 0.7)
 
 # 각도 표시를 위한 빈 영역 초기화
-counter_display = st.empty()
-counter_display.text(f"현재 카운터: {counter}회")
-left_angle_display = st.empty()
-right_angle_display = st.empty()
+neck_angle_display = st.sidebar.empty()
+left_shoulder_angle_display = st.sidebar.empty()
+right_shoulder_angle_display = st.sidebar.empty()
+left_elbow_angle_display = st.sidebar.empty()
+right_elbow_angle_display = st.sidebar.empty()
+left_hip_angle_display = st.sidebar.empty()
+right_hip_angle_display = st.sidebar.empty()
+left_knee_angle_display = st.sidebar.empty()
+right_knee_angle_display = st.sidebar.empty()
+left_ankle_angle_display = st.sidebar.empty()
+right_ankle_angle_display = st.sidebar.empty()
 
 while True:
     _, frame = camera.read()
@@ -157,7 +168,7 @@ while True:
                             landmarks[mp_pose.PoseLandmark.LEFT_HEEL].x,
                             landmarks[mp_pose.PoseLandmark.LEFT_HEEL].y,
                         ]  # 좌측 힐
-                        right_heel = [
+                        right_shoulder = [
                             landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER].x,
                             landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER].y,
                         ]  # 우측 어깨
@@ -187,12 +198,71 @@ while True:
                         ]  # 우측 힐
 
                         # 각도 계산
-                        left_angle = calculateAngle(left_hip, left_knee, left_ankle)
-                        right_angle = calculateAngle(right_hip, right_knee, right_ankle)
+                        neck_angle = (
+                            calculateAngle(left_shoulder, nose, left_hip)
+                            + calculateAngle(right_shoulder, nose, right_hip) / 2
+                        )
+                        left_elbow_angle = calculateAngle(
+                            left_shoulder, left_elbow, left_wrist
+                        )
+                        right_elbow_angle = calculateAngle(
+                            right_shoulder, right_elbow, right_wrist
+                        )
+                        left_shoulder_angle = calculateAngle(
+                            left_elbow, left_shoulder, left_hip
+                        )
+                        right_shoulder_angle = calculateAngle(
+                            right_elbow, right_shoulder, right_hip
+                        )
+                        left_hip_angle = calculateAngle(
+                            left_shoulder, left_hip, left_knee
+                        )
+                        right_hip_angle = calculateAngle(
+                            right_shoulder, right_hip, right_knee
+                        )
+                        left_knee_angle = calculateAngle(
+                            left_hip, left_knee, left_ankle
+                        )
+                        right_knee_angle = calculateAngle(
+                            right_hip, right_knee, right_ankle
+                        )
+                        left_ankle_angle = calculateAngle(
+                            left_knee, left_ankle, left_heel
+                        )
+                        right_ankle_angle = calculateAngle(
+                            right_knee, right_ankle, right_heel
+                        )
 
                         # 각도 표시 업데이트
-                        left_angle_display.text(f"Left Angle: {left_angle:.2f}")
-                        right_angle_display.text(f"Right Angle: {right_angle:.2f}")
+                        neck_angle_display.text(f"Neck Angle: {neck_angle:.2f}")
+                        left_shoulder_angle_display.text(
+                            f"Left Angle: {left_shoulder_angle:.2f}"
+                        )
+                        right_shoulder_angle_display.text(
+                            f"Right Angle: {right_shoulder_angle:.2f}"
+                        )
+                        left_elbow_angle_display.text(
+                            f"Left Angle: {left_elbow_angle:.2f}"
+                        )
+                        right_elbow_angle_display.text(
+                            f"Right Angle: {right_elbow_angle:.2f}"
+                        )
+                        left_hip_angle_display.text(f"Left Angle: {left_hip_angle:.2f}")
+                        right_hip_angle_display.text(
+                            f"Right Angle: {right_hip_angle:.2f}"
+                        )
+                        left_knee_angle_display.text(
+                            f"Left Angle: {left_knee_angle:.2f}"
+                        )
+                        right_knee_angle_display.text(
+                            f"Right Angle: {right_knee_angle:.2f}"
+                        )
+                        left_ankle_angle_display.text(
+                            f"Left Angle: {left_ankle_angle:.2f}"
+                        )
+                        right_ankle_angle_display.text(
+                            f"Right Angle: {right_ankle_angle:.2f}"
+                        )
 
                         # 화면에 각도 표시
                         frame = cv2.putText(
@@ -214,24 +284,7 @@ while True:
                             2,
                         )
 
-                        # 각도 차이 확인
-                        # angle_diff = abs(left_angle - right_angle)
-                        # if angle_diff >= 30:
-                        #     current_time = time.time()
-                        #     if current_time - previous_alert_time >= 3:
-                        #         now = datetime.datetime.now()
-                        #         st.write(
-                        #             f"자세가 무너졌습니다! - {now.hour}시 {now.minute}분 {now.second}초"
-                        #         )
-                        #         pygame.mixer.init()
-                        #         pygame.mixer.music.load(
-                        #             "./resources/sounds/broken_posture.mp3"
-                        #         )
-                        #         pygame.mixer.music.play()
-                        #         # 이전 알림 시간 갱신
-                        #         previous_alert_time = current_time
-
-                        # 업 다운
+                        # 횟수 세기 알고리즘 구현
                         try:
                             row = [
                                 coord
@@ -242,25 +295,15 @@ while True:
                             exercise_class = model_e.predict(X)[0]
                             exercise_class_prob = model_e.predict_proba(X)[0]
                             print(exercise_class, exercise_class_prob)
-                            if (
-                                "down" in exercise_class
-                                and exercise_class_prob[exercise_class_prob.argmax()]
-                                >= 0.3
-                            ):
+                            if "down" in exercise_class:
                                 current_stage = "down"
                                 posture_status.append(exercise_class)
-                                # pygame.mixer.init()
-                                # pygame.mixer.music.load("./resources/sounds/down.mp3")
-                                # pygame.mixer.music.play()
-                                # # st.write("down")
-                            elif (
-                                current_stage == "down"
-                                and "up" in exercise_class
-                                and exercise_class_prob[exercise_class_prob.argmax()]
-                                >= 0.3
-                            ):
+                                print(f"현재: {posture_status}")
+                            elif current_stage == "down" and "up" in exercise_class:
+                                # and exercise_class_prob[exercise_class_prob.argmax()] >= 0.3
                                 current_stage = "up"
                                 counter += 1
+                                posture_status.append(exercise_class)
                                 counter_display.text(f"현재 카운터: {counter}회")
                                 if most_frequent(posture_status) not in "correct":
                                     current_time = time.time()
@@ -269,7 +312,6 @@ while True:
                                         st.write(
                                             f"자세가 무너졌습니다! - {now.hour}시 {now.minute}분 {now.second}초"
                                         )
-                                        pygame.mixer.init()
                                         pygame.mixer.music.load(
                                             "./resources/sounds/broken_posture.mp3"
                                         )
@@ -278,8 +320,7 @@ while True:
                                         print("자세가 무너졌습니다!")
                                         # 이전 알림 시간 갱신
                                         previous_alert_time = current_time
-                                else:
-                                    pygame.mixer.init()
+                                elif most_frequent(posture_status) in "correct":
                                     pygame.mixer.music.load("./resources/sounds/up.mp3")
                                     pygame.mixer.music.play()
                                     # st.write("up")
