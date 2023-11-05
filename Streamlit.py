@@ -9,6 +9,13 @@ import pygame
 import torch
 import pickle
 
+st.set_page_config(
+    page_title="실시간 3대 운동 AI 자세 교정 서비스",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items=None,
+)
+
 # YOLOv5 모델 불러오기
 model_weights_path = "./models/best_big_bounding.pt"
 model = torch.hub.load("ultralytics/yolov5", "custom", path=model_weights_path)
@@ -56,7 +63,7 @@ pygame.mixer.init()
 # Sidebar에 메뉴 추가
 menu_selection = st.selectbox("운동 선택", ("벤치프레스", "스쿼트", "데드리프트"))
 counter_display = st.sidebar.empty()
-counter_display.text(f"현재 카운터: {counter}회")
+counter_display.header(f"현재 카운터: {counter}회")
 
 # Load different models based on the selected exercise
 counter = 0
@@ -89,8 +96,8 @@ pose = mp_pose.Pose(
     min_detection_confidence=0.5, min_tracking_confidence=0.7, model_complexity=2
 )
 
-# 신뢰도 임계값 조정을 위한 슬라이더 추가
-confidence_threshold = st.slider("신뢰도 임계값", 0.0, 1.0, 0.7)
+# 신뢰도 임계값 슬라이더
+confidence_threshold = st.sidebar.slider("관절점 추적 신뢰도 임계값", 0.0, 1.0, 0.7)
 
 # 각도 표시를 위한 빈 영역 초기화
 neck_angle_display = st.sidebar.empty()
@@ -133,7 +140,6 @@ while True:
                     object_frame_rgb = cv2.cvtColor(object_frame, cv2.COLOR_BGR2RGB)
                     results_pose = pose.process(object_frame_rgb)
 
-                    # Extract and draw posture landmarks on the object frame
                     if results_pose.pose_landmarks is not None:
                         landmarks = results_pose.pose_landmarks.landmark
                         nose = [
@@ -234,34 +240,34 @@ while True:
                         )
 
                         # 각도 표시 업데이트
-                        neck_angle_display.text(f"Neck Angle: {neck_angle:.2f}")
+                        neck_angle_display.text(f"목 각도: {neck_angle:.2f}°")
                         left_shoulder_angle_display.text(
-                            f"Left Angle: {left_shoulder_angle:.2f}"
+                            f"왼쪽 어깨 각도: {left_shoulder_angle:.2f}°"
                         )
                         right_shoulder_angle_display.text(
-                            f"Right Angle: {right_shoulder_angle:.2f}"
+                            f"오른쪽 어깨 각도: {right_shoulder_angle:.2f}°"
                         )
                         left_elbow_angle_display.text(
-                            f"Left Angle: {left_elbow_angle:.2f}"
+                            f"왼쪽 팔꿈치 각도: {left_elbow_angle:.2f}°"
                         )
                         right_elbow_angle_display.text(
-                            f"Right Angle: {right_elbow_angle:.2f}"
+                            f"오른쪽 팔꿈치 각도: {right_elbow_angle:.2f}°"
                         )
-                        left_hip_angle_display.text(f"Left Angle: {left_hip_angle:.2f}")
+                        left_hip_angle_display.text(f"왼쪽 엉덩이 각도: {left_hip_angle:.2f}°")
                         right_hip_angle_display.text(
-                            f"Right Angle: {right_hip_angle:.2f}"
+                            f"오른쪽 엉덩이 각도: {right_hip_angle:.2f}°"
                         )
                         left_knee_angle_display.text(
-                            f"Left Angle: {left_knee_angle:.2f}"
+                            f"왼쪽 무릎 각도: {left_knee_angle:.2f}°"
                         )
                         right_knee_angle_display.text(
-                            f"Right Angle: {right_knee_angle:.2f}"
+                            f"오른쪽 무릎 각도: {right_knee_angle:.2f}°"
                         )
                         left_ankle_angle_display.text(
-                            f"Left Angle: {left_ankle_angle:.2f}"
+                            f"왼쪽 발목 각도: {left_ankle_angle:.2f}°"
                         )
                         right_ankle_angle_display.text(
-                            f"Right Angle: {right_ankle_angle:.2f}"
+                            f"오른쪽 발목 각도: {right_ankle_angle:.2f}°"
                         )
 
                         # 화면에 각도 표시
@@ -298,37 +304,132 @@ while True:
                             if "down" in exercise_class:
                                 current_stage = "down"
                                 posture_status.append(exercise_class)
-                                print(f"현재: {posture_status}")
+                                print(f"운동 수행자의 자세: {posture_status}")
                             elif current_stage == "down" and "up" in exercise_class:
                                 # and exercise_class_prob[exercise_class_prob.argmax()] >= 0.3
                                 current_stage = "up"
                                 counter += 1
                                 posture_status.append(exercise_class)
-                                counter_display.text(f"현재 카운터: {counter}회")
-                                if most_frequent(posture_status) not in "correct":
+                                counter_display.header(f"현재 카운터: {counter}회")
+                                if "correct" not in most_frequent(posture_status):
                                     current_time = time.time()
                                     if current_time - previous_alert_time >= 3:
                                         now = datetime.datetime.now()
-                                        st.write(
-                                            f"자세가 무너졌습니다! - {now.hour}시 {now.minute}분 {now.second}초"
-                                        )
-                                        pygame.mixer.music.load(
-                                            "./resources/sounds/broken_posture.mp3"
-                                        )
-                                        pygame.mixer.music.play()
-
-                                        print("자세가 무너졌습니다!")
-                                        # 이전 알림 시간 갱신
-                                        previous_alert_time = current_time
-                                elif most_frequent(posture_status) in "correct":
-                                    pygame.mixer.music.load("./resources/sounds/up.mp3")
+                                        if "excessive_arch" in most_frequent(
+                                            posture_status
+                                        ):
+                                            options = [
+                                                (
+                                                    "허리를 너무 아치 모양으로 만들지 말고 가슴을 피려고 노력하세요.",
+                                                    "./resources/sounds/excessive_arch_1.mp3",
+                                                ),
+                                                (
+                                                    "골반을 조금 더 들어올리고 복부를 긴장시켜 허리를 평평하게 유지하세요.",
+                                                    "./resources/sounds/excessive_arch_2.mp3",
+                                                ),
+                                            ]
+                                            selected_option = random.choice(options)
+                                            selected_message = selected_option[0]
+                                            selected_music = selected_option[1]
+                                            st.error(selected_message)
+                                            pygame.mixer.music.load(selected_music)
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                        elif "arms_spread" in most_frequent(
+                                            posture_status
+                                        ):
+                                            options = [
+                                                (
+                                                    "바를 너무 넓게 잡았습니다. 조금 더 좁게 잡으세요.",
+                                                    "./resources/sounds/arms_spread_1.mp3",
+                                                ),
+                                                (
+                                                    "바를 잡을 때 어깨 너비보다 약간만 넓게 잡는 것이 좋습니다.",
+                                                    "./resources/sounds/arms_spread_2.mp3",
+                                                ),
+                                            ]
+                                            selected_option = random.choice(options)
+                                            selected_message = selected_option[0]
+                                            selected_music = selected_option[1]
+                                            st.error(selected_message)
+                                            pygame.mixer.music.load(selected_music)
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                        elif "spine_neutral" in most_frequent(
+                                            posture_status
+                                        ):
+                                            options = [
+                                                (
+                                                    "척추가 과도하게 굽지 않도록 노력하세요",
+                                                    "./resources/sounds/spine_neutral_feedback_1.mp3",
+                                                ),
+                                                (
+                                                    "가슴을 들어올리고 어깨를 뒤로 넣으세요.",
+                                                    "./resources/sounds/spine_neutral_feedback_2.mp3",
+                                                ),
+                                            ]
+                                            selected_option = random.choice(options)
+                                            selected_message = selected_option[0]
+                                            selected_music = selected_option[1]
+                                            st.error(selected_message)
+                                            pygame.mixer.music.load(selected_music)
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                        elif "caved_in_knees" in most_frequent(
+                                            posture_status
+                                        ):
+                                            options = [
+                                                (
+                                                    "무릎이 움푹 들어가지 않도록 주의하세요.",
+                                                    "./resources/sounds/caved_in_knees_feedback_1.mp3",
+                                                ),
+                                                (
+                                                    "엉덩이를 뒤로 빼서 무릎과 발끝을 일직선으로 유지하세요.",
+                                                    "./resources/sounds/caved_in_knees_feedback_2.mp3",
+                                                ),
+                                            ]
+                                            selected_option = random.choice(options)
+                                            selected_message = selected_option[0]
+                                            selected_music = selected_option[1]
+                                            st.error(selected_message)
+                                            pygame.mixer.music.load(selected_music)
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                        elif "feet_spread" in most_frequent(
+                                            posture_status
+                                        ):
+                                            st.error("발을 어깨 너비 정도로만 벌리도록 좁히세요.")
+                                            pygame.mixer.music.load(
+                                                "./resources/sounds/feet_spread.mp3"
+                                            )
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                        elif "arms_narrow" in most_frequent(
+                                            posture_status
+                                        ):
+                                            st.error("바를 어깨 너비보다 조금 넓게 잡는 것이 좋습니다.")
+                                            pygame.mixer.music.load(
+                                                "./resources/sounds/arms_narrow.mp3"
+                                            )
+                                            pygame.mixer.music.play()
+                                            posture_status.clear()
+                                            previous_alert_time = current_time
+                                elif "correct" in most_frequent(posture_status):
+                                    pygame.mixer.music.load(
+                                        "./resources/sounds/correct.mp3"
+                                    )
                                     pygame.mixer.music.play()
-                                    # st.write("up")
-                                    print("자세가 올바르다.")
+                                    posture_status.clear()
+                                    st.info("올바른 자세로 운동을 수행하고 있습니다.")
                         except Exception as e:
                             pass
 
-                        # 랜드마크 그리기
+                        # 랜드마크 표시
                         for landmark in mp_pose.PoseLandmark:
                             if (
                                 landmarks[landmark.value].visibility
@@ -341,7 +442,7 @@ while True:
                                     mp.solutions.drawing_styles.get_default_pose_landmarks_style(),
                                 )
 
-                    # 객체 프레임을 원본 프레임에 다시 그립니다.
+                    # 객체 프레임을 원본 프레임에 다시 그리기
                     frame[c1[1] : c2[1], c1[0] : c2[0]] = object_frame
 
                     frame = cv2.rectangle(frame, c1, c2, (0, 255, 0), 2)
