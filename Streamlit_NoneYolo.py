@@ -262,7 +262,7 @@ while True:
                                     st.error(selected_message)
                                     pygame.mixer.music.load(selected_music)
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                                 elif "arms_spread" in most_frequent(posture_status):
                                     options = [
@@ -281,7 +281,7 @@ while True:
                                     st.error(selected_message)
                                     pygame.mixer.music.load(selected_music)
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                                 elif "spine_neutral" in most_frequent(posture_status):
                                     options = [
@@ -300,7 +300,7 @@ while True:
                                     st.error(selected_message)
                                     pygame.mixer.music.load(selected_music)
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                                 elif "caved_in_knees" in most_frequent(posture_status):
                                     options = [
@@ -319,7 +319,7 @@ while True:
                                     st.error(selected_message)
                                     pygame.mixer.music.load(selected_music)
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                                 elif "feet_spread" in most_frequent(posture_status):
                                     st.error("발을 어깨 너비 정도로만 벌리도록 좁히세요.")
@@ -327,7 +327,7 @@ while True:
                                         "./resources/sounds/feet_spread.mp3"
                                     )
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                                 elif "arms_narrow" in most_frequent(posture_status):
                                     st.error("바를 어깨 너비보다 조금 넓게 잡는 것이 좋습니다.")
@@ -335,12 +335,13 @@ while True:
                                         "./resources/sounds/arms_narrow.mp3"
                                     )
                                     pygame.mixer.music.play()
-                                    posture_status.clear()
+                                    posture_status = []
                                     previous_alert_time = current_time
                         elif "correct" in most_frequent(posture_status):
                             pygame.mixer.music.load("./resources/sounds/correct.mp3")
                             pygame.mixer.music.play()
                             st.info("올바른 자세로 운동을 수행하고 있습니다.")
+                            posture_status = []
                 except Exception as e:
                     pass
 
