@@ -74,9 +74,9 @@ study duration: 2023.09.01 ~ ing <br>
 ## How to Use
 - Open your terminal in mac, linux or your command prompt in Windows. Then, type "<b>Streamlit run Streamlit.py</b>".<br>
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
-  |picture1|picture2|
-    |:---:|:---:|
-    |![스크린샷 2023-09-16 222045](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/d4c754b3-9569-4969-82cb-18bebbc6f9dd)|![스크린샷 2023-09-16 224645](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/95129ae5-9cf3-41a3-90a4-017150efeb1c)|
+  |This Service|
+    |:---:|
+    |<img width="1428" alt="스크린샷 2023-11-01 오후 1 40 08" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/05bb3078-6439-499e-9793-62051da78140">|
   
 ## Major project records
 - 2023/09/10: The project detecting only one person using yolov5 was completed.
