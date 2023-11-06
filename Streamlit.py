@@ -270,26 +270,6 @@ while True:
                             f"오른쪽 발목 각도: {right_ankle_angle:.2f}°"
                         )
 
-                        # 화면에 각도 표시
-                        frame = cv2.putText(
-                            frame,
-                            f"Left Angle: {left_angle:.2f}",
-                            (10, 30),
-                            cv2.FONT_HERSHEY_SIMPLEX,
-                            1,
-                            (0, 255, 0),
-                            2,
-                        )
-                        frame = cv2.putText(
-                            frame,
-                            f"Right Angle: {right_angle:.2f}",
-                            (10, 70),
-                            cv2.FONT_HERSHEY_SIMPLEX,
-                            1,
-                            (0, 255, 0),
-                            2,
-                        )
-
                         # 횟수 세기 알고리즘 구현
                         try:
                             row = [
