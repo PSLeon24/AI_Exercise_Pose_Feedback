@@ -105,4 +105,4 @@ study duration: 2023.09.01 ~ ing <br>
 - Week 8: Write the paper and Link all models(bench press, squat, deadlift) and the streamlit server
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_8.pdf">Read More</a>
 - Week 9: Implement feedback for each posture
-  - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_9.pdf">Read More</a>
+  - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_9.pptx">Read More</a>
