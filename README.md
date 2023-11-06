@@ -76,7 +76,7 @@ study duration: 2023.09.01 ~ ing <br>
   <img width="387" alt="스크린샷 2023-09-17 오후 4 40 44" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/23a85105-0836-4632-86a9-a0f87017852d">
   |This Service|
     |:---:|
-    |<img width="1428" alt="스크린샷 2023-11-01 오후 1 40 08" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/05bb3078-6439-499e-9793-62051da78140">|
+    |<img width="1439" alt="스크린샷 2023-11-05 오후 5 16 02" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/c815206c-0aae-4b4f-bf2b-4032be70e0cb">|
   
 ## Major project records
 - 2023/09/10: The project detecting only one person using yolov5 was completed.
