@@ -66,7 +66,7 @@ study duration: 2023.09.01 ~ ing <br>
     |Accuracy|Precision|Recall|F1-Score|
     |:--:|:--:|:--:|:--:|
     |0.989|0.989|0.989|0.989|
-  - Deadlift (Algorithm: Gradient Boosting)
+  - Deadlift (Algorithm: Random Forest)
     |Accuracy|Precision|Recall|F1-Score|
     |:--:|:--:|:--:|:--:|
     |0.947|0.949|0.947|0.948|
