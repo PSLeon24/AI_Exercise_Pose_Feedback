@@ -97,6 +97,7 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
 - 2023/10/18: I linked the bench press model and the server and implemented an algorithm to count the number of doing bench presses. Additionally, I will be linking two models: deadlift and squat.
 - 2023/10/24: I linked all models and the server. I have finished writing the paper.
 - 2023/11/05: I implemented feedback for each posture
+- 2023/11/20: I submitted the paper and experiment results.
 
 ## Project Progress
 - Week 1: Requirement Analysis
@@ -116,3 +117,6 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_8.pdf">Read More</a>
 - Week 9: Implement feedback for each posture
   - <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/docs/presentation_9.pptx">Read More</a>
+- Week 10: Paper Feedback
+- Week 11: Paper Feedback
+- Week 12: Finish the project
