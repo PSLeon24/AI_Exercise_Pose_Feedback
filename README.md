@@ -127,5 +127,5 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
 - Week 11: Paper Feedback
 - Week 12: Finish the project
 
-- Award
+## Award
 ![우수논문상](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/73ec0496-63c6-4a10-80cc-86c20fffb3da)
