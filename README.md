@@ -33,7 +33,7 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
     |Test 1|Test 2|
     |:---:|:---:|
     |![스크린샷 2023-09-17 154841](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/87a0b701-2df5-400b-9001-d4f526bf8211)|![스크린샷 2023-09-17 154818](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/750a4a99-cfd6-44cc-ae95-a4db42e7b67a)|
-    |Applied 1|Applied 2|
+    |<b>Applied 1</b>|<b>Applied 2</b>|
     |<img width="561" alt="데드용2" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/e3d2e1f9-8fda-422d-9096-64d77b337b00">|<img width="564" alt="스쿼트용2" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/5e17f5a1-dc61-4152-82ea-24d86c563ee9">|
 - Exercise Posture Correction
   - Shooting Stand Position
