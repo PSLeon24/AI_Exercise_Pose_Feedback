@@ -34,7 +34,7 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
     |:---:|:---:|
     |![스크린샷 2023-09-17 154841](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/87a0b701-2df5-400b-9001-d4f526bf8211)|![스크린샷 2023-09-17 154818](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/750a4a99-cfd6-44cc-ae95-a4db42e7b67a)|
     |Applied 1|Applied 2|
-    |<img width="529" alt="벤치용1" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/ddb93398-620a-473c-9bba-d186cfb7adef">|<img width="564" alt="스쿼트용2" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/5e17f5a1-dc61-4152-82ea-24d86c563ee9">|
+    |<img width="561" alt="데드용2" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/e3d2e1f9-8fda-422d-9096-64d77b337b00">|<img width="564" alt="스쿼트용2" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/5e17f5a1-dc61-4152-82ea-24d86c563ee9">|
 - Exercise Posture Correction
   - Shooting Stand Position
     |Bench Press|Squat and Deadlift|
@@ -126,3 +126,6 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
 - Week 10: Paper Feedback
 - Week 11: Paper Feedback
 - Week 12: Finish the project
+
+- Award
+![우수논문상](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/73ec0496-63c6-4a10-80cc-86c20fffb3da)
