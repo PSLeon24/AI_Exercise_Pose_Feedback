@@ -96,15 +96,15 @@ study duration: 2023.09.01 ~ 2023.11.20 <br>
   |<img width="632" alt="스크린샷 2023-12-03 오후 9 01 41" src="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/e891d8fd-3af1-4d9a-a51d-4425aa9df452">|
   
 ## Major project records
-- 2023/09/10: The project detecting only one person using yolov5 was completed.
-- 2023/09/11: As a result of using it in combination with mediapipe, the accuracy was lower than expected. Therefore, we plan to do labeling by adding extra space around people.
-- 2023/09/16: The bounding box to train the model was significantly relabeled, and as a result, pose estimation was finally successful with high accuracy when using yolov5 and mediapipe together. And <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/Streamlit.py">the streamlit file</a> was impleted to estimate holistic pose after detecting only person closest to the camera using yolov5.
-- 2023/09/30 ~ 2023/10/02: I have collected dataset to train exercise posture classification model.
-- 2023/10/03 ~ 2023/10/08: First, I have labeled the dataset's class. And then I have trained models. Finally, I have evaluated the models.
-- 2023/10/18: I linked the bench press model and the server and implemented an algorithm to count the number of doing bench presses. Additionally, I will be linking two models: deadlift and squat.
-- 2023/10/24: I linked all models and the server. I have finished writing the paper.
-- 2023/11/05: I implemented feedback for each posture
-- 2023/11/20: I submitted the paper and experiment results.
+- 2023/09/10: 2023/09/10: Successfully concluded a project utilizing YOLOv5 to detect a singular individual.
+- 2023/09/11: Integration with Mediapipe yielded lower accuracy than anticipated. Consequently, we decided to enhance labeling by introducing additional spatial dimensions around individuals.
+- 2023/09/16: Significantly refined bounding boxes for model training, resulting in a triumphant pose estimation with remarkable accuracy when employing YOLOv5 and Mediapipe in tandem. Implemented a Streamlit file for holistic pose estimation after detecting the nearest person using YOLOv5. And <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/Streamlit.py">the streamlit file</a> was impleted to estimate holistic pose after detecting only person closest to the camera using yolov5.
+- 2023/09/30 ~ 2023/10/02: Gathered datasets for training an exercise posture classification model.
+- 2023/10/03 ~ 2023/10/08: Commenced with class labeling of the dataset, followed by model training and conclusive evaluations.
+- 2023/10/18: Established a connection between the bench press model and the server, implementing an algorithm to count bench press repetitions. Additionally, in the process of linking two additional models: deadlift and squat.
+- 2023/10/24: Successfully integrated all models and the server, culminating in the completion of the paper.
+- 2023/11/05: Implemented feedback mechanisms for each specific posture.
+- 2023/11/20: Submitted the finalized paper along with experimental results.
 
 ## Project Progress
 - Week 1: Requirement Analysis
