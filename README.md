@@ -1,4 +1,4 @@
-# AI_Exercise_Pose_Feedback
+# Real-Time AI Posture Correction for Powerlifting Exercises Using YOLOv5 and MediaPipe
 ![rea](https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/assets/59058869/7a8d6fc1-2d21-45a9-b92f-fdd8cadc43b9)
 
 - Paper: <a href="https://github.com/PSLeon24/AI_Exercise_Pose_Feedback/blob/main/PAPER/YOLOv5%20%EB%B0%8F%20MediaPipe%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%8B%A4%EC%8B%9C%EA%B0%84%203%EB%8C%80%20%EC%9A%B4%EB%8F%99%20AI%20%EC%9E%90%EC%84%B8%20%EA%B5%90%EC%A0%95%20%EC%84%9C%EB%B9%84%EC%8A%A4%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%97%B0%EA%B5%AC.pdf">Paper Download</a>
